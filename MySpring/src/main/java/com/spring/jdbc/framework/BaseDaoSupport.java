@@ -1,8 +1,12 @@
 package com.spring.jdbc.framework;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.sql.DataSource;
+
+import org.aspectj.weaver.tools.cache.AsynchronousFileCacheBacking.RemoveCommand;
+import org.springframework.util.StringUtils;
 
 
 public abstract class BaseDaoSupport<T extends Serializable,PK extends Serializable>  {
@@ -21,6 +25,22 @@ public abstract class BaseDaoSupport<T extends Serializable,PK extends Serializa
 	 * @param dataSourece
 	 */
 	protected abstract void seDataSource(DataSource dataSourece);
+	
+	protected List<T> find(QueryRule queryRule) throws Exception{
+		//把用户设置的所有查询规则都带过来了
+		//接下来要生成SQl语句
+		QueryRuleSqlBulider bulider = new QueryRuleSqlBulider(queryRule);
+//		String ws = removeFirstAnd(bulider.getWhereSal());
+//		String whereSql = ("".equals(ws)) ? ws : ("where" + ws);
+//		String sql = "select " + op.allColumn + " from " + getTableName() + whereSql;
+//		Object[] values = bulider.getvalues();
+//		String orderSql = bulider.getOrderSql();
+//		orderSql = (StringUtils.isEmpty(orderSql)) ? " " : (" order by" + orderSql);
+//		sql += orderSql;
+//		log.debug(sql);
+//		return this.jdbcTemplateReadOnly().query(sql,this.op.rowMapper,values);
+		return null;
+	}
 	
 	
 }

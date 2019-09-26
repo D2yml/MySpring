@@ -12,4 +12,19 @@ public class Order {
 	private String propertyName;
 	
 	
+	public Order(String propertyName,boolean ascending) {
+		super();
+		this.ascending = ascending;
+		this.propertyName = propertyName;
+	}
+
+
+	public static Order asc(String property_name) {
+		return new Order(property_name,true);
+	}
+	public static Order desc(String property_name) {
+		return new Order(property_name,false);
+	}
+	
+	
 }
