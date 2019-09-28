@@ -40,22 +40,22 @@ public class QueryRuleSqlBulider {
 		for (QueryRule.Rule rule : queryRule.getRuleList()) {
 			switch (rule.getType()) {
 				case QueryRule.BETWEEN:
-					processBetween(rule);
+//					processBetween(rule);
 					break;
 				case QueryRule.EQ:
-					processEqual(rule);
+//					processEqual(rule);
 					break;
 				case QueryRule.LIKE:
 					processLike(rule);
 					break;
 				case QueryRule.NOTEQ:
-					processNotEqual(rule);
+//					processNotEqual(rule);
 					break;
 				case QueryRule.GT:
-					processGreaterThen(rule);
+//					processGreaterThen(rule);
 					break;
 				case QueryRule.GE:
-					processGreaterEqual(rule);
+//					processGreaterEqual(rule);
 					break;
 				case QueryRule.LT:
 					processLessThen(rule);
@@ -95,9 +95,9 @@ public class QueryRuleSqlBulider {
 		//拼装where
 		appendWhereSql();
 		//拼装排序
-		appendOrderSql();
+//		appendOrderSql();
 		//拼装参数
-		appendValues();
+//		appendValues();
 	}
 	
 	private void processIsNotEmpty(QueryRule.Rule rule) {
@@ -144,7 +144,7 @@ public class QueryRuleSqlBulider {
 		for (String p : properties) {
 			wheresql.append(p);
 		}
-		this.whereSql = removeSelect(removeOrders(whereSql.toString()));
+//		this.whereSql = removeSelect(removeOrders(whereSql.toString()));
 	}
 
 	private void processNotIN(QueryRule.Rule rule) {
@@ -195,7 +195,7 @@ public class QueryRuleSqlBulider {
 		if(ArrayUtils.isEmpty(rule.getValues())) {
 			return ;
 		}
-		Object obj = rule.getVlaues()[0];
+		Object obj = rule.getValues()[0];
 		if (obj != null) {
 			String value = obj.toString();
 			if (!StringUtils.isEmpty(value)) {
